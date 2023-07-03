@@ -9,6 +9,9 @@ This project is an adoption of the official C++ [VShadow Tool Sample](https://do
 
 ## VssBackup
 
+此处关于占用线程的文本文件读取，有处代码有问题，位于 VssBackup 类中的GetStream 方法采用的是系统system.io的File读取会报错：
+影子副本属于内核文件，无法读取的错误，需要改成这样才可以：return Alphaleonis.Win32.Filesystem.File.OpenRead(GetSnapshotPath(localPath));
+
 This is a project containing a couple of examples combining [AlphaFS](https://github.com/alphaleonis/AlphaFS) and [AlphaVSS](https://github.com/alphaleonis/AlphaVSS).
 
 ## SnapshotQuery
